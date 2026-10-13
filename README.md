@@ -2,6 +2,8 @@
 
 baseline-drift-ledger is an append-only, hash-chained JSONL ledger for benchmark baselines: every entry carries an environment annotation, every entry's hash covers the previous one, so retro-editing history is detectable — and when a score drifts beyond threshold, the tool diffs the two entries' environments and lists the changes as candidate causes. Confidence: High (≥80%) for the four subcommands, per the 65-case suite.
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 Benchmark numbers rot silently. A suite that scored 100 last month scores 92 today — is the code slower, or did the Python version change, or did someone re-run on a loaded machine? Git history tells you what changed in *code*, nothing tells you what changed in *environment* between the two runs. Worse: baseline files get quietly edited ("let me just update the number"), and nobody can prove which historical scores were real.
